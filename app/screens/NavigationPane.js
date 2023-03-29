@@ -11,7 +11,7 @@ const NavigationPane = () => {
             style={styles.menuItem}
             //</View>onPress={() => navigate('Home')}
             >
-          <Image source={require('./images/home_icon.png')} 
+          <Image source={require('./images/home2_icon.png')} 
             style={styles.navIcon} />
           <Text style={styles.menuText1}>Home</Text>
         </TouchableOpacity>
@@ -63,12 +63,13 @@ const styles = StyleSheet.create({
   menu: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    borderRadius:20,
+    borderTopLeftRadius:20,
+    borderTopRightRadius:20,
     width: '100%',
     backgroundColor: '#d9e4fa',
     borderTopWidth: 1,
     borderTopColor: '#ddd',
-    height: 60,
+    height: 70,
     marginTop:30,
   },
   menuItem: {

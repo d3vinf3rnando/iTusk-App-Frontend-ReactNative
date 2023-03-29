@@ -13,6 +13,7 @@ import WelcomeScreen from './app/screens/WelcomeScreen';
 import Notifications from './app/screens/Notifications';
 import SurvivalTips from './app/screens/SurvivalTips';
 import NavigationPane from './app/screens/NavigationPane';
+import Carousel from './app/screens/Carousel';
 
 //import all the screens we are going to switch 
 const App = createStackNavigator({
@@ -22,6 +23,7 @@ const App = createStackNavigator({
     //First entry by default be our first screen if we do not define initialRouteName
     //Map: {screen: MapScreen},
     Nav: { screen: NavigationPane},
+    Carousel: {screen: Carousel},
     Emergency: { screen: EmergencyScreen },
     Notifications: {screen: Notifications},
     Tips: {screen: SurvivalTips},

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import Carousel from './Carousel';
 import NavigationPane from './NavigationPane';
 
 export default class HomeScreen extends Component{
@@ -7,78 +8,88 @@ export default class HomeScreen extends Component{
     const { navigate } = this.props.navigation;
     return (
         <View style={styles.container}>
-        {/* Square buttons */}
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            style={styles.button1}
-            onPress={() => navigate('Nav')}
+          <View style={styles.header}>
+            <Image source={require('./images/menu2.png')} 
+                      style={styles.headerIcon} />
+            <Text style={styles.title}>i TUSK</Text>
+            <Image source={require('./images/search.png')} 
+                      style={styles.headerIcon} />
+          </View>
+          <Carousel/>
+          <Text style={styles.title2}>Quick Access</Text>
+          {/* Square buttons */}
+          <View style={styles.buttonContainer}>
+            
+            <TouchableOpacity
+              style={styles.button1}
+              onPress={() => navigate('Carousel')}
+              >
+              <Image source={require('./images/map.png')} 
+                    style={styles.buttonIcon} />
+              <Text style={styles.buttonText}>iTusk {'\n'}sensor map</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.button2}
+              onPress={() => navigate('Emergency')}
+              >
+                <Image source={require('./images/emergency.png')} 
+                    style={styles.buttonIcon} />
+              <Text style={styles.buttonText}>Emergency {'\n'}Help</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.button3}
+              onPress={() => navigate('Notifications')}
+              >
+                <Image source={require('./images/alert.png')} 
+                    style={styles.buttonIcon} />
+              <Text style={styles.buttonText}>Alert {'\n'}Notifications</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.button4}
+              onPress={() => navigate('Tips')}
             >
-            <Image source={require('./images/map.png')} 
-                  style={styles.buttonIcon} />
-            <Text style={styles.buttonText}>iTusk {'\n'}sensor map</Text>
-          </TouchableOpacity>
+              <Image source={require('./images/survival.png')} 
+                    style={styles.buttonIcon} />
+              <Text style={styles.buttonText4}>Survival {'\n'}Tips</Text>
+            </TouchableOpacity>
+          </View>
 
-          <TouchableOpacity
-            style={styles.button2}
-            onPress={() => navigate('Emergency')}
-            >
-              <Image source={require('./images/emergency.png')} 
-                  style={styles.buttonIcon} />
-            <Text style={styles.buttonText}>Emergency {'\n'}Help</Text>
-          </TouchableOpacity>
+          {/* Navigation pane
+      <View style={styles.navContainer}>
+        <TouchableOpacity
+          style={styles.navItem}
+          onPress={() => navigate('Home')}
+        >
+        <Text>Home</Text>
+        </TouchableOpacity>
 
-          <TouchableOpacity
-            style={styles.button3}
-            onPress={() => navigate('Notifications')}
-            >
-              <Image source={require('./images/alert.png')} 
-                  style={styles.buttonIcon} />
-            <Text style={styles.buttonText}>Alert {'\n'}Notifications</Text>
-          </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.navItem}
+          onPress={() => navigate('Emergency')}
+        >
+          <Text>News</Text>
+        </TouchableOpacity>
 
-          <TouchableOpacity
-            style={styles.button4}
-            onPress={() => navigate('Tips')}
-          >
-            <Image source={require('./images/survival.png')} 
-                  style={styles.buttonIcon} />
-            <Text style={styles.buttonText4}>Survival {'\n'}Tips</Text>
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity
+          style={styles.navItem}
+          onPress={() => navigate('Welcome')}
+        >
+          <Text>Report</Text>
+        </TouchableOpacity>
 
-        {/* Navigation pane
-    <View style={styles.navContainer}>
-      <TouchableOpacity
-        style={styles.navItem}
-        onPress={() => navigate('Home')}
-      >
-      <Text>Home</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        style={styles.navItem}
-        onPress={() => navigate('Emergency')}
-      >
-        <Text>News</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        style={styles.navItem}
-        onPress={() => navigate('Welcome')}
-      >
-        <Text>Report</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        style={styles.navItem}
-        onPress={() => navigate('Home')}
-      >
-        <Text>Profile</Text>
-      </TouchableOpacity>
-      
-    </View>
-    */}
-      <NavigationPane/>
+        <TouchableOpacity
+          style={styles.navItem}
+          onPress={() => navigate('Home')}
+        >
+          <Text>Profile</Text>
+        </TouchableOpacity>
+        
+      </View>
+      */}
+        <NavigationPane/>
       </View> 
     );
   };
@@ -91,11 +102,37 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  header: {
+    width : '90%' ,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 16,
+    paddingTop: 20,
+  },
+  
+  headerIcon:{
+    height: 30,
+    width: 30,
+  },
+  title: {
+    color: '#4d4b4b',
+    fontSize: 26,
+    fontWeight: 'bold',
+  },
+  title2: {
+    textAlign: 'left',
+    color: '#000',
+    marginTop: 10,
+    marginLeft: -180,
+    fontSize: 24,
+    fontWeight: 'bold',
+  },
   buttonContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
-    marginTop: 420,
+    marginTop: 20,
     paddingHorizontal: 20,
   },
   buttonIcon: {
@@ -103,20 +140,20 @@ const styles = StyleSheet.create({
     marginLeft:-60,
     marginTop:5,
     marginBottom: 5,
-    height: 35,
-    width: 35,
+    height: 40,
+    width: 40,
     borderRadius: 8,
     //resizeMode: 'stretch',
   },
   buttonText: {
-    fontSize: 14,
+    fontSize: 16,
     color: '#000',
     marginTop: 10,
     marginLeft:-15,
     fontWeight: 'bold',
   },
   buttonText4: {
-    fontSize: 14,
+    fontSize: 16,
     color: '#000',
     marginTop: 10,
     marginLeft:-30,
@@ -124,8 +161,8 @@ const styles = StyleSheet.create({
   },
   button1: {
     fontFamily: 'notoserif',
-    width: '40%',
-    height: 120,
+    width: '42%',
+    height: 140,
     backgroundColor: '#D7EFFF',
     margin: 10,
     justifyContent: 'center',
@@ -143,8 +180,8 @@ const styles = StyleSheet.create({
 
   },
   button2: {
-    width: '40%',
-    height: 120,
+    width: '42%',
+    height: 140,
     backgroundColor: '#F8DCDC',
     margin: 10,
     justifyContent: 'center',
@@ -162,8 +199,8 @@ const styles = StyleSheet.create({
 
   },
   button3: {
-    width: '40%',
-    height: 120,
+    width: '42%',
+    height: 140,
     backgroundColor: '#EBE9FF',
     margin: 10,
     justifyContent: 'center',
@@ -181,8 +218,8 @@ const styles = StyleSheet.create({
  
   },
   button4: {
-    width: '40%',
-    height: 120,
+    width: '42%',
+    height: 140,
     backgroundColor: '#DBEFE0',
     margin: 10,
     justifyContent: 'center',

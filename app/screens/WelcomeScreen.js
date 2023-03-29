@@ -1,14 +1,17 @@
-import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import React, { useEffect } from 'react';
+import { View, Image, StyleSheet } from 'react-native';
 
-const WelcomeScreen = () => {
+const WelcomeScreen = ({ navigation }) => {
+  useEffect(() => {
+    setTimeout(() => {
+      navigation.replace('Home'); // Replace 'Home' with the name of your main screen
+    }, 2000); // 2 seconds
+  }, []);
+
   return (
     <View style={styles.container}>
-      <Image
-        source={require('./images/logo.png')}
-        style={styles.logo}
-      />
-      {/*<Text style={styles.title}>i-Tusk</Text>*/}
+      <Image source={require('./images/logo.png')} 
+      style={styles.logo} />
     </View>
   );
 };
@@ -18,19 +21,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F4FEED',
+    backgroundColor: '#fff',
   },
   logo: {
-    width: 150,
-    height: 150,
-    marginBottom: 50,
-  },
-  title: {
-    color:'#009D2C',
-    justifyContent: 'center',
-    fontSize: 24,
-    fontWeight: 'bold',
-    textAlign: 'center',
+    width: 120,
+    height: 120,
   },
 });
 

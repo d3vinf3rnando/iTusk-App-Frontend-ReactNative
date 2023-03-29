@@ -4,7 +4,7 @@ import { SafeAreaView, Text} from 'react-native'
 function EmergencyScreen() {
   return (
     <SafeAreaView>
-        <Text id="text">Notifications screen</Text>
+        <Text id="text">Survival Tips</Text>
     </SafeAreaView>
   )
 }

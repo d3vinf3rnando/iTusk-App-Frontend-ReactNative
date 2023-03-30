@@ -5,9 +5,9 @@ const { width } = Dimensions.get('window');
 const imageWidth = width * 0.9;
 
 const images = [
-  { id: 1, source: require('./images/image.png') },
-  { id: 2, source: require('./images/image.png') },
-  { id: 3, source: require('./images/image.png') },
+  { id: 1, source: require('./images/image1.png') },
+  { id: 2, source: require('./images/image1.png') },
+  { id: 3, source: require('./images/image1.png') },
 ];
 
 const Carousel = () => {
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginLeft:10,
-    marginVertical: 30,
+    marginVertical: 40,
   },
   leftArrow: {
     marginTop:90,
@@ -110,11 +110,11 @@ const styles = StyleSheet.create({
     width: 8,
     height: 8,
     borderRadius: 4,
-    backgroundColor: '#bbb',
+    backgroundColor: '#c1d6f7',
     marginHorizontal: 5,
   },
   activeDot: {
-    backgroundColor: '#333',
+    backgroundColor: '#306ccf',
   },
 });
 

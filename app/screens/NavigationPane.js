@@ -38,7 +38,7 @@ const NavigationPane = () => {
             style={styles.menuItem}
             //onPress={() => navigate('Home')}
             >
-          <Image source={require('./images/user_icon.png')} 
+          <Image source={require('./images/user1_icon.png')} 
             style={styles.navIcon}/>
           <Text style={styles.menuText}>Profile</Text>
         </TouchableOpacity>
@@ -75,10 +75,10 @@ const styles = StyleSheet.create({
   menuItem: {
     alignItems: 'center',
     justifyContent: 'center',
-    width: '25%',
+    width: '23%',
   },
   menuText: {
-    fontSize: 12,
+    fontSize: 13,
     color: '#555',
     marginTop: 5,
     fontWeight: 'bold',

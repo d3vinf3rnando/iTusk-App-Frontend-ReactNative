@@ -14,6 +14,7 @@ import Notifications from './app/screens/Notifications';
 import SurvivalTips from './app/screens/SurvivalTips';
 import NavigationPane from './app/screens/NavigationPane';
 import Carousel from './app/screens/Carousel';
+import HeaderNotif from './app/screens/HeaderNotif';
 
 //import all the screens we are going to switch 
 const App = createStackNavigator({
@@ -27,6 +28,7 @@ const App = createStackNavigator({
     Emergency: { screen: EmergencyScreen },
     Notifications: {screen: Notifications},
     Tips: {screen: SurvivalTips},
+    HeaderNotif: {screen: HeaderNotif},
   },
   {
     initialRouteName: 'Welcome',

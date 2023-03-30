@@ -12,7 +12,7 @@ export default class HomeScreen extends Component{
             <Image source={require('./images/menu2.png')} 
                       style={styles.headerIcon} />
             <Text style={styles.title}>i TUSK</Text>
-            <Image source={require('./images/search.png')} 
+            <Image source={require('./images/search2.png')} 
                       style={styles.headerIcon} />
           </View>
           <Carousel/>
@@ -98,7 +98,7 @@ export default class HomeScreen extends Component{
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#f2f2f2',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -112,8 +112,8 @@ const styles = StyleSheet.create({
   },
   
   headerIcon:{
-    height: 30,
-    width: 30,
+    height: 25,
+    width: 25,
   },
   title: {
     color: '#4d4b4b',
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
   title2: {
     textAlign: 'left',
     color: '#000',
-    marginTop: 10,
+    marginTop: -15,
     marginLeft: -180,
     fontSize: 24,
     fontWeight: 'bold',

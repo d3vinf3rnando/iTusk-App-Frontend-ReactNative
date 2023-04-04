@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 
 //Import react-navigation
 import { NavigationContainer } from '@react-navigation/native';
-import { createAppContainer } from 'react-navigation';
+//import { createAppContainer } from 'react-navigation';
 //import { createStackNavigator} from 'react-navigation-stack';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -16,8 +16,6 @@ import Notifications from './app/screens/Notifications';
 import SurvivalTips from './app/screens/SurvivalTips';
 import NavigationPane from './app/screens/NavigationPane';
 import Carousel from './app/screens/Carousel';
-import HeaderNotif from './app/screens/HeaderNotif';
-import SlidingPanel from './app/screens/SlidingPanel';
 
 //import all the screens we are going to switch 
 /*const App = createStackNavigator({
@@ -67,20 +65,12 @@ function App() {
           component={MapScreen}
         />
         <Stack.Screen
-          name="Panel"
-          component={SlidingPanel}
-        />
-        <Stack.Screen
           name="Emergency"
           component={EmergencyScreen}
         />
         <Stack.Screen
           name="Notifs"
           component={Notifications}
-        />
-        <Stack.Screen
-          name="HeaderNotif"
-          component={HeaderNotif}
         />
         <Stack.Screen
           name="Tips"

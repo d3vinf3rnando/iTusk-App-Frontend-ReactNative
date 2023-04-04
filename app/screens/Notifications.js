@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Image , TouchableOpacity} from 'react-native';
-import HeaderNotif from './HeaderNotif';
 
 
 const notifications = [

@@ -6,7 +6,7 @@ const Card1 = ({ title, imageSource, description }) => {
     <View style={styles.card1}>
       <View style={styles.cardContent}>
         <Text style={styles.title1}>{title}</Text>
-        <Image source={imageSource} style={styles.image} />
+        <Image source={imageSource} style={styles.image1} />
         <Text style={styles.description}>{description}</Text>
       </View>
     </View>
@@ -18,7 +18,7 @@ const Card2 = ({ title, imageSource, description }) => {
     <View style={styles.card2}>
       <View style={styles.cardContent}>
         <Text style={styles.title2}>{title}</Text>
-        <Image source={imageSource} style={styles.image} />
+        <Image source={imageSource} style={styles.image2} />
         <Text style={styles.description}>{description}</Text>
       </View>
     </View>
@@ -38,13 +38,13 @@ export default class Notifications extends Component {
       </View>
       <Card1
         title="First Aid in case of Emergency. "
-        imageSource= {require('./images/firstAid.png')}
+        imageSource= {require('./images/firstAid2.png')}
         description="First aid is the first and immediate assistance given to any person 
         with either a minor or serious illness or injury, with care provided...read more"
       />
       <Card2
         title="How to survive from elephant attack"
-        imageSource= {require('./images/elephant1.png')}
+        imageSource= {require('./images/elephant2.png')}
         description="The best way to survive an elephant attack is to avoid the animal. 
         If you're the target of an attack, you should be aware of its movements. This...read more"
       />
@@ -105,11 +105,18 @@ const styles = StyleSheet.create({
     height: 350,
     marginLeft: 20,
   },
-  image: {
-    marginBottom:15,
+  image1: {
+    marginBottom:25,
     marginLeft: 80,
-    height: 150,
-    width: 150,
+    height: 140,
+    width: 140,
+    resizeMode: 'cover',
+  },
+  image2: {
+    marginBottom:0,
+    marginLeft: 80,
+    height: 180,
+    width: 180,
     resizeMode: 'cover',
   },
 

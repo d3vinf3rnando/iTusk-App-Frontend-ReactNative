@@ -1,5 +1,5 @@
-import React from 'react';
-import { StyleSheet, View, Text, Image } from 'react-native';
+import React, { Component } from 'react';
+import { StyleSheet, View, Text, Image , TouchableOpacity} from 'react-native';
 import HeaderNotif from './HeaderNotif';
 
 
@@ -59,13 +59,16 @@ const NotificationCard = ({ notification }) => (
   </View>
 );
 
-const NotificationsScreen = () => (
+export default class Notifications extends Component {
+  render() {
+    return (
   <View style={styles.container}>
-    {/*<HeaderNotif/>*/}
     <View style={styles.header}>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('Home')} >
             <Image source={require('./images/back.png')} 
-                      style={styles.headerIcon} />
-            <Text style={styles.headerTitle}>Alert Notifications</Text>        
+                style={styles.headerIcon} />
+        </TouchableOpacity>
+        <Text style={styles.headerTitle}>Alert Notifications</Text>        
     </View>
     <NotificationCard1 notification={notifications[0]} />
     <NotificationCard2 notification={notifications[1]} />
@@ -74,7 +77,9 @@ const NotificationsScreen = () => (
     <NotificationCard3 notification={notifications[4]} />
     <NotificationCard3 notification={notifications[5]} />
   </View>
-);
+      );
+    };
+  };
 
 const styles = StyleSheet.create({
   container: {
@@ -169,4 +174,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default NotificationsScreen;
+//export default NotificationsScreen;

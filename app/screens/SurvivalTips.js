@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import React, {Component} from 'react';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
 const Card1 = ({ title, imageSource, description }) => {
   return (
@@ -25,13 +25,16 @@ const Card2 = ({ title, imageSource, description }) => {
   );
 };
 
-const ScreenWithTwoCards = () => {
-  return (
+export default class Notifications extends Component {
+  render() {
+    return (
     <View style={styles.container}>
       <View style={styles.header}>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('Home')} >
             <Image source={require('./images/back.png')} 
-                      style={styles.headerIcon} />
-            <Text style={styles.headerTitle}>Survival Tips</Text>        
+                style={styles.headerIcon} />
+        </TouchableOpacity>
+        <Text style={styles.headerTitle}>Survival Tips</Text>        
       </View>
       <Card1
         title="First Aid in case of Emergency. "
@@ -48,6 +51,7 @@ const ScreenWithTwoCards = () => {
     </View>
   );
 };
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -55,6 +59,25 @@ const styles = StyleSheet.create({
     //flexDirection: 'row',
     justifyContent: 'space-between',
     padding: 10,
+  },
+  header: {
+    width : '90%' ,
+    flexDirection: 'row',
+    alignItems: 'center',
+    //justifyContent: 'space-between',
+    //paddingHorizontal: 16,
+    paddingBottom: 20,
+  },
+  
+  headerIcon:{
+    height: 25,
+    width: 25,
+  },
+  headerTitle: {
+    paddingLeft: 10,
+    color: '#4d4b4b',
+    fontSize: 18,
+    fontWeight: 'bold',
   },
   card1: {
     backgroundColor: '#c0dffc',
@@ -135,4 +158,3 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ScreenWithTwoCards;

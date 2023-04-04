@@ -1,71 +1,69 @@
-import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, View, Text } from 'react-native';
 import MapView, { Circle } from 'react-native-maps';
-import SlidingUpPanel from 'rn-sliding-up-panel';
+import SlidingPanel from './SlidingPanel';
 
 const MapScreen = () => {
-  const [panelHeight, setPanelHeight] = React.useState(0);
-  const handlePanelLayout = e => setPanelHeight(e.nativeEvent.layout.height);
+  const [region, setRegion] = useState({
+    latitude: 6.416665,
+    longitude: 81.333332,
+    latitudeDelta: 0.0922,
+    longitudeDelta: 0.0421,
+  });
+
+  const handleRegionChange = (newRegion) => {
+    setRegion(newRegion);
+  };
 
   return (
-    <View style={styles.container}>
-      <MapView style={styles.map} initialRegion={{
-        Latitude: 6.4135,
-        Longitude: 81.3326,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
-        }}>
+    <>
+      <MapView style={styles.map} region={region} showsUserLocation onRegionChange={handleRegionChange}>
         <Circle
-          center={{Latitude: 6.4127,
-            Longitude: 81.3158}}
-          radius={20}
-          strokeColor="red"
-          fillColor="rgba(255, 0, 0, 0.1)"
-        />
-        <Circle
-          center={{Latitude: 6.4123,
-            Longitude: 81.3164}}
-          radius={20}
+          center={{
+            latitude: 6.4135,
+            longitude: 81.3326,
+          }}
+          radius={500}
+          strokeWidth={2}
           strokeColor="green"
-          fillColor="rgba(0, 255, 0, 0.1)"
-        />
+          fillColor="rgba(0, 128, 0, 0.2)"
+        >
+          <View style={styles.circle}>
+            <Text style={styles.circleText}>Safe Zone</Text>
+          </View>
+        </Circle>
+
+        <Circle
+          center={{
+            latitude: 6.4123,
+            longitude: 81.3164,
+          }}
+          radius={300}
+          strokeWidth={2}
+          strokeColor="red"
+          fillColor="rgba(255, 0, 0, 0.2)"
+        >
+          <View style={styles.circle}>
+            <Text style={styles.circleText}>Danger Zone</Text>
+          </View>
+        </Circle>
       </MapView>
-      <SlidingUpPanel
-        draggableRange={{ top: panelHeight, bottom: 0 }}
-        height={300}
-        onLayout={handlePanelLayout}
-      >
-        <View style={styles.panel}>
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Emergency</Text>
-          </TouchableOpacity>
-        </View>
-      </SlidingUpPanel>
-    </View>
+      <SlidingPanel />
+    </>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   map: {
-    flex: 1,
+    //flex: 1,
   },
-  panel: {
-    flex: 1,
-    alignItems: 'center',
+  circle: {
+    //flex: 1,
     justifyContent: 'center',
+    alignItems: 'center',
   },
-  button: {
-    backgroundColor: 'red',
-    paddingHorizontal: 30,
-    paddingVertical: 10,
-    borderRadius: 5,
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 18,
+  circleText: {
+    color: '#fff',
     fontWeight: 'bold',
   },
 });

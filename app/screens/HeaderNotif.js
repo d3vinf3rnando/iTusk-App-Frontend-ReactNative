@@ -1,25 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 
-const BackButton = () => {
-    render(); {
-        //const { navigate } = this.props.navigation;
-    const navigation = useNavigation();
-
+export default class HeaderNotif extends Component {
+  render() {
     return (
-        <NavigationContainer>
-            <View style={styles.header}>
-            <TouchableOpacity onPress={() => navigation.goBack()}>
-                <Image source={require('./images/back.png')} 
+      <View style={styles.header}>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('Home')} >
+            <Image source={require('./images/back.png')} 
                 style={styles.headerIcon} />
-            </TouchableOpacity>
-            <Text style={styles.headerTitle}>Alert Notifications</Text>        
-            </View>
-        </NavigationContainer>
+        </TouchableOpacity>
+        <Text style={styles.headerTitle}>Alert Notifications</Text>        
+      </View>
     );
-    };
+  };
 };
+
+
 
 const styles = StyleSheet.create({
 header: {
@@ -43,5 +39,3 @@ header: {
   },
 });
 
-
-export default BackButton;

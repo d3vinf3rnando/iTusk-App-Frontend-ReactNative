@@ -22,7 +22,7 @@ export default class HomeScreen extends Component{
             
             <TouchableOpacity
               style={styles.button1}
-              onPress={() => navigate('Carousel')}
+              onPress={() => navigate('Map')}
               >
               <Image source={require('./images/map.png')} 
                     style={styles.buttonIcon} />
@@ -40,7 +40,7 @@ export default class HomeScreen extends Component{
 
             <TouchableOpacity
               style={styles.button3}
-              onPress={() => navigate('Notifications')}
+              onPress={() => navigate('Notifs')}
               >
                 <Image source={require('./images/alert.png')} 
                     style={styles.buttonIcon} />

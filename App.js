@@ -50,7 +50,6 @@ function App() {
         <Stack.Screen
           name="Home"
           component={HomeScreen2}
-          options={{ title: null }}
         />
         <Stack.Screen
           name="Carousel"

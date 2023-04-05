@@ -1,34 +1,41 @@
 import React from 'react';
-import { Text, StyleSheet, TouchableOpacity, Linking } from 'react-native';
-//import call from 'react-native-phone-call';
+import { StyleSheet, View } from 'react-native';
+import Card from './EmergencyScreen/Card';
+import CircleButton from './EmergencyScreen/CircleButton';
+import Header from './EmergencyScreen/Header';
+import PersonIcon from './EmergencyScreen/PersonIcon';
+import TitleSection from './EmergencyScreen/TitleSection';
+import { Component } from 'react';
 
-  const CallButton = ({ phoneNumber }) => {
-    const handlePress = () => {
-      Linking.openURL(`tel:${119}`);
-    };
-
+function EmergencyScreen() {
   return (
-    <TouchableOpacity style={styles.emergencyButton} onPress={handlePress}>
-      <Text style={styles.callText}>Emergency Call</Text>
-    </TouchableOpacity>
-  );
+    <View >
+      <Header/>
+      <TitleSection />
+      <View style={styles.container}>
+        <PersonIcon top={20} right={45} name="police" />
+        <PersonIcon top={190} right={75} name="Wild life Dep" />
+        <PersonIcon top={160} left={75} name="Dad" />
+        <CircleButton />
+      </View>
+      <View>
+        <Card location='22A lsac Lane, Yala Road , Katharagama' />
+      </View>
+    </View>
+  )
 };
 
+
 const styles = StyleSheet.create({
-  emergencyButton:{
-    marginTop: 20,
-    padding:5,
-    backgroundColor: '#9e1c13',
-    borderRadius: 20,
-    width: '50%',
-  },
-  callText:{
-    textAlign:'center',
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#fff',
-    padding:10,
+  container: {
+    //flex:1,
+    backgroundColor: '#f2f2f2',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'relative',
+    paddingBottom: 200
   },
 });
 
-export default CallButton;
+export default EmergencyScreen

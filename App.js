@@ -17,6 +17,17 @@ import SurvivalTips from './app/screens/SurvivalTips';
 import NavigationPane from './app/screens/NavigationPane';
 import Carousel from './app/screens/Carousel';
 
+/*import messaging from '@react-native-firebase/messaging';
+
+
+
+messaging().setBackgroundMessageHandler(async remoteMessage => {
+  console.log('Received background message:', remoteMessage);
+});
+
+messaging().onNotificationOpenedApp(remoteMessage => {
+  console.log('Notification clicked:', remoteMessage);
+});*/
 //import all the screens we are going to switch 
 /*const App = createStackNavigator({
   //Constant which holds all the screens like index of any book 

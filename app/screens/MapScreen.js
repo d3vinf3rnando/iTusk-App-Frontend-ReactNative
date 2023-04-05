@@ -3,6 +3,7 @@ import { StyleSheet, View, Text , TouchableOpacity, Image, Linking} from 'react-
 import MapView, { Marker, Circle } from 'react-native-maps';
 
 const MapScreen = () => {
+  //setting up the region boundaries for the map
   const [region, setRegion] = useState({
     latitude: 6.416665,
     longitude: 81.333332,
@@ -14,55 +15,58 @@ const MapScreen = () => {
     setRegion(newRegion);
   };
 
+  //Linking the emergency call button to direct calls
   const handlePress = () => {
     Linking.openURL(`tel:${119}`);
   };
 
 
   return (
-      <><MapView style={styles.map} region={region} showsUserLocation onRegionChange={handleRegionChange}>
-      <Marker coordinate={{ latitude: 6.4115, longitude: 81.3326 }}>
-        <View style={styles.circle}>
-          <Text style={styles.circleText}>Safe {'\n'} Zone</Text>
+      <>
+        <MapView style={styles.map} region={region} showsUserLocation onRegionChange={handleRegionChange}>
+          <Marker coordinate={{ latitude: 6.4115, longitude: 81.3326 }}>
+          <View style={styles.circle}>
+            <Text style={styles.circleText}>Safe {'\n'} Zone</Text>
+          </View>
+          </Marker>
+          <Circle
+            center={{
+              latitude: 6.4135,
+              longitude: 81.3326,
+            }}
+            radius={700}
+            strokeWidth={2}
+            strokeColor="green"
+            fillColor="rgba(0, 128, 0, 0.2)" />
+
+          <Marker coordinate={{ latitude: 6.4093, longitude: 81.3172 }}>
+            <View style={styles.circle}>
+              <Text style={styles.circleText}>Danger {'\n'} Zone</Text>
+            </View>
+          </Marker>
+
+          <Circle
+            center={{
+              latitude: 6.4123,
+              longitude: 81.3164,
+            }}
+            radius={600}
+            strokeWidth={2}
+            strokeColor="red"
+            fillColor="rgba(255, 0, 0, 0.2)" />
+        </MapView>
+
+        <View style={styles.panel}>
+            <TouchableOpacity >
+              <Image source={require('./images/dash.png')} style={styles.dashButton} />
+            </TouchableOpacity>
+            <Text style={styles.panelTitle}>Elephant Sensors Activated!</Text>
+            <Image source={require('./images/run.jpg')} style={styles.runImage} />
+            <TouchableOpacity style={styles.emergencyButton} onPress={handlePress}>
+              <Text style={styles.callText}>Emergency Call</Text>
+            </TouchableOpacity>
         </View>
-      </Marker>
-
-      <Circle
-        center={{
-          latitude: 6.4135,
-          longitude: 81.3326,
-        }}
-        radius={700}
-        strokeWidth={2}
-        strokeColor="green"
-        fillColor="rgba(0, 128, 0, 0.2)" />
-
-      <Marker coordinate={{ latitude: 6.4093, longitude: 81.3172 }}>
-        <View style={styles.circle}>
-          <Text style={styles.circleText}>Danger {'\n'} Zone</Text>
-        </View>
-      </Marker>
-
-      <Circle
-        center={{
-          latitude: 6.4123,
-          longitude: 81.3164,
-        }}
-        radius={600}
-        strokeWidth={2}
-        strokeColor="red"
-        fillColor="rgba(255, 0, 0, 0.2)" />
-    </MapView>
-    <View style={styles.panel}>
-          <TouchableOpacity >
-            <Image source={require('./images/dash.png')} style={styles.dashButton} />
-          </TouchableOpacity>
-          <Text style={styles.panelTitle}>Elephant Sensors Activated!</Text>
-          <Image source={require('./images/run.jpg')} style={styles.runImage} />
-          <TouchableOpacity style={styles.emergencyButton} onPress={handlePress}>
-            <Text style={styles.callText}>Emergency Call</Text>
-          </TouchableOpacity>
-      </View></>
+      </>
   );
 };
 

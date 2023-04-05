@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Image, Dimensions, TouchableOpacity } from 'react-native';
 
+//setting height and width of the carousel
 const { width } = Dimensions.get('window');
 const imageWidth = width * 0.9;
 
+//images used for the carousel
 const images = [
   { id: 1, source: require('./images/image1.png') },
   { id: 2, source: require('./images/image1.png') },
   { id: 3, source: require('./images/image1.png') },
 ];
 
+//setting action for carousel navigation
 const Carousel = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 

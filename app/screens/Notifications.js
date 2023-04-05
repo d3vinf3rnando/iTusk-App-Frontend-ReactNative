@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Image , TouchableOpacity} from 'react-native';
 
-
+//setting up notifications
 const notifications = [
   { id: 1, title: 'You are in the safe zone.', time:'10:00 AM' , icon:require('./images/shield.png')},
   { id: 2, title: 'iTusk alarm system activated around you!',time:'9:30 AM' ,icon:require('./images/warning1-red.png')},
@@ -11,6 +11,7 @@ const notifications = [
   { id: 6, title: 'Warning!!! Elephants detected 1km away from you.' ,time:'9:00 AM',icon:require('./images/warning-orange.png') },
 ];
 
+//structuring each notification card
 const NotificationCard1 = ({ notification }) => (
   <View style={[styles.card1, { height: notification.size }]}>
     <View style={styles.iconContainer}>

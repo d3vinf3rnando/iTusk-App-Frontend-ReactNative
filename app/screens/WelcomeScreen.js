@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 
+//setting up the splash screen to navigate to homescreen after 2 seconds
 const WelcomeScreen = ({ navigation }) => {
   useEffect(() => {
     setTimeout(() => {
-      navigation.replace('Home'); // Replace 'Home' with the name of your main screen
+      navigation.replace('Home'); 
     }, 2000); // 2 seconds
   }, []);
 

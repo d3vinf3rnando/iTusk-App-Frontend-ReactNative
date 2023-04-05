@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
+//structuring each card
 const Card1 = ({ title, imageSource, description }) => {
   return (
     <View style={styles.card1}>

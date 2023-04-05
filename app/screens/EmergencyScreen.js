@@ -5,11 +5,12 @@ import CircleButton from './EmergencyScreen/CircleButton';
 import Header from './EmergencyScreen/Header';
 import PersonIcon from './EmergencyScreen/PersonIcon';
 import TitleSection from './EmergencyScreen/TitleSection';
-import { Component } from 'react';
+//importing all the sub screens needed for the emergency screen
 
 function EmergencyScreen() {
   return (
     <View >
+      {/*Calling sub screens*/}
       <Header/>
       <TitleSection />
       <View style={styles.container}>

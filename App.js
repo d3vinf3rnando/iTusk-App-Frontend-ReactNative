@@ -17,7 +17,7 @@ import SurvivalTips from './app/screens/SurvivalTips';
 import NavigationPane from './app/screens/NavigationPane';
 import Carousel from './app/screens/Carousel';
 
-/*import messaging from '@react-native-firebase/messaging';
+import messaging from '@react-native-firebase/messaging';
 
 
 
@@ -27,10 +27,11 @@ messaging().setBackgroundMessageHandler(async remoteMessage => {
 
 messaging().onNotificationOpenedApp(remoteMessage => {
   console.log('Notification clicked:', remoteMessage);
-});*/
+});
 
 //Creating stack navigator for navigation through screens
 const Stack = createStackNavigator();
+
 
 function App() {
   return (
